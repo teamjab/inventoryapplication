@@ -8,8 +8,8 @@ Type `npm i` to install of the dependencies.
 
 ## Dependencies
 
-- Express
-- dotenv
-- ejs
-- method-override
-- pg
+    "dotenv": "^8.2.0",
+    "ejs": "^3.0.1",
+    "express": "^4.17.1",
+    "method-override": "^3.0.0",
+    "pg": "^7.18.1"
