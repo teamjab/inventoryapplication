@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./partials/head.ejs') %>
+<body>
+
+    <form action="/admin" method="post">
+        <fieldset>
+            <label>Item Name:</label>
+            <input type="text" name="itemname" placeholder="Cordyceps,Shipper 1's...">
+          <div>
+            <label>P.O#:</label>
+            <input type="number" name="purchaseorder" placeholder="Purchase Order #">
+          </div>
+          <div>
+            <label>Lot Number:</label>
+            <input type="text" name="lotnumber" placeholder="Lot Number">
+          </div>
+          <div>
+            <div>Received Date:</div>
+            <input type="date" name="rcvdate">
+          </div>
+          <div>
+            <div>Expiration Date:</div>
+            <input type="date" name="expdate">
+          </div>
+          <div>
+            <div>Quantity:</div>
+            <input type="number" name="qty" placeholder="Quantity">
+          </div>
+          <div>
+            <label>Material</label>
+            <input type="radio" name="type" value="material">
+            <label>Vitamin</label>
+            <input type="radio" name="type" value="vitamin">
+          </div>
+            <button type="submit">Submit</button>
+        </fieldset>
+    </form>
+    
+
+    
+        
+    
+
+
+
+    <%- include('./partials/footer.ejs') %>
+</body>
+</html>
