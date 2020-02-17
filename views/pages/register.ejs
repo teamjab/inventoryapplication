@@ -4,6 +4,9 @@
 <body>
 
 <form action="/register" method="post">
+    <% if (registerFail === true) { %>
+        <p>The username is taken</p>
+    <% } %>
     <fieldset>
     <div>
     <label for="">First Name:</label>

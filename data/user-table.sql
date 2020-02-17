@@ -1,13 +1,13 @@
-DROP TABLE IF EXISTS user-storage;
+DROP TABLE IF EXISTS userstorage;
 
-CREATE TABLE user_storage
+CREATE TABLE userstorage
 (
   id SERIAL PRIMARY KEY,
   name VARCHAR(255),
   type VARCHAR(255),
   lotNumber TEXT,
-  Quantities VARCHAR(255),
+  quantities VARCHAR(255),
   purchaseOrder VARCHAR(255),
-  ReceivedDate DATE,
-  expData DATE,
-)
+  receivedDate DATE,
+  expData DATE
+);

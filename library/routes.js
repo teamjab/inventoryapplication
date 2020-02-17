@@ -17,7 +17,7 @@ function login(request, response) {
     client.query(SQL, safeValue)
         .then(result => {
             if (result.rowCount === 1) {
-                let SQL1 = 'SELECT * from user-storage;';
+                let SQL1 = 'SELECT * from userstorage;';
                 client.query(SQL1)
                     .then(item => {
                         response.render('./pages/inventory.ejs', { item: item })
@@ -29,13 +29,12 @@ function login(request, response) {
         .catch(err => console.error(err));
 }
 
-///// render regiser page
-
+// renders register page //
 function registerPage(request, response) {
-    response.render('./pages/register', { registerFail: true })
+    response.render('./pages/register', { registerFail: false })
 }
 
-///////////////// checks if user already exists, if so tells user in register ejs to make another user, if not enters user name and password into database///////////////////
+// checks if user already exists, if so tells user in register ejs to make another user, if not enters user name and password into database //
 function register(request, response) {
     let { name, username, password} = request.body;
     let SQL = 'SELECT * FROM users WHERE $1 = username;';
