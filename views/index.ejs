@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./partials/head.ejs') %>
+<body>
+    <form action="/admin" method="post">
+      <% if (loginFailed === true) { %>
+        <p>please try to login again</p>
+      <% } %>
+        <fieldset>
+            <input type="text" name="username" placeholder="User Name">
+            <input type="password" name="password" placeholder="Password">
+            <button type="submit" name="logInCheck">Login</button>
+            <a href="/register">Register</a>
+        </fieldset>
+    </form>
+</body>
+</html>
+
+
