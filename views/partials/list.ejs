@@ -1,0 +1,24 @@
+<table>
+    <tbody>
+        <tr>
+            <th>Item Name</th>
+            <th>Purchase Order</th>
+            <th>Lot Number</th>
+            <th>Received Date</th>
+            <th>Expiration Date</th>
+            <th>Quantities</th>
+            <th>Type</th>
+        </tr>
+        <% item.forEach(items => { %>
+            <tr>
+            <td><%= items.name %></td>
+            <td><%= items.purchaseorder %></td>
+            <td><%= items.lotnumber %></td>
+            <td><%= items.receiveddate %></td>
+            <td><%= items.expdata %></td>
+            <td><%= items.quantities %></td>
+            <td><%= items.type %></td>
+        </tr>
+        <% }) %>
+    </tbody>
+</table>

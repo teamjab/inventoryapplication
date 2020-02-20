@@ -8,7 +8,7 @@
     <a href="/admin">register a user</a>
  <% } %>
 
-    <form action="/inventory" method="post">
+    <form action="/inventory/add" method="post">
         <fieldset>
             <label>Item Name:</label>
             <input type="text" name="itemname" placeholder="Cordyceps,Shipper 1's...">
@@ -43,7 +43,7 @@
     </form>
     
 
-    
+    <%- include('../partials/list', {item: item})%>
         
     
 
