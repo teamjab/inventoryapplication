@@ -16,11 +16,17 @@ function login(request, response) {
     let safeValue = [username, password];
     client.query(SQL, safeValue)
         .then(result => {
-            if (result.rowCount === 1) {
+            if (result.rowCount === 1 && result.rows[0].username === 'admin') {
                 let SQL1 = 'SELECT * from userstorage;';
                 client.query(SQL1)
                     .then(item => {
-                        response.render('./pages/inventory.ejs', { item: item })
+                        response.render('./pages/inventory.ejs', { item: item, admin: true })
+                    })
+            } else if (result.rowCount ===1 ) {
+                let SQL1 = 'SELECT * from userstorage;';
+                client.query(SQL1)
+                    .then(item => {
+                        response.render('./pages/inventory.ejs', { item: item, admin: false })
                     })
             } else {
                 response.render('./index', { loginFailed: true });
@@ -48,16 +54,33 @@ function register(request, response) {
                 let safeValue1 = [name, username, password];
                 client.query(SQL1, safeValue1)
                     .then(results => {
-                        response.redirect('/');
+                        response.redirect('/inventory');
                     })
             };
         })
         .catch(err => console.error(err));
 }
 
+////// To check admin so that you can register other people
+function checkAdmin (request, response) {
+    response.render('./pages/admin');
+}
+
+////// TO check for inventory ///
+function inventoryPage(request, response) {
+    let SQL1 = 'SELECT * from userstorage;';
+    client.query(SQL1)
+        .then(item => {
+            response.render('./pages/inventory.ejs', { item: item, admin: true })
+        })
+}
+
+
 module.exports = {
     indexPage,
     login,
     register,
-    registerPage
+    registerPage,
+    checkAdmin,
+    inventoryPage
 }

@@ -3,6 +3,11 @@
 <%- include('../partials/head.ejs') %>
 <body>
 
+ 
+ <% if (admin === true) { %>
+    <a href="/admin">register a user</a>
+ <% } %>
+
     <form action="/inventory" method="post">
         <fieldset>
             <label>Item Name:</label>
