@@ -54,7 +54,7 @@ function register(request, response) {
                 let safeValue1 = [name, username, password];
                 client.query(SQL1, safeValue1)
                     .then(results => {
-                        response.redirect('/');
+                        response.redirect('/inventory');
                     })
             };
         })
@@ -66,11 +66,21 @@ function checkAdmin (request, response) {
     response.render('./pages/admin');
 }
 
+////// TO check for inventory ///
+function inventoryPage(request, response) {
+    let SQL1 = 'SELECT * from userstorage;';
+    client.query(SQL1)
+        .then(item => {
+            response.render('./pages/inventory.ejs', { item: item, admin: true })
+        })
+}
+
 
 module.exports = {
     indexPage,
     login,
     register,
     registerPage,
-    checkAdmin
+    checkAdmin,
+    inventoryPage
 }

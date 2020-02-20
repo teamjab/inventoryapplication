@@ -20,11 +20,12 @@ app.set('view engine', 'ejs');
 
 ////////// ROUTES //////////////
 app.get('/', routes.indexPage);
-app.post('/inventory');
-app.post('/admin', routes.login);
-app.get('/admin/register', routes.registerPage);
+app.get('/inventory', routes.inventoryPage);
+app.post('/inventory', routes.login);
+app.get('/admin', routes.checkAdmin)
+app.post('/admin/register', routes.registerPage);
 app.post('/register', routes.register);
-app.get('/registeruser', routes.checkAdmin)
+app.post('/inventory/admin');
 
 // error handlers //
 app.use('*', defaults.notFoundHandler);
