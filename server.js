@@ -22,8 +22,9 @@ app.set('view engine', 'ejs');
 app.get('/', routes.indexPage);
 app.post('/inventory');
 app.post('/admin', routes.login);
-app.get('/register', routes.registerPage);
+app.get('/admin/register', routes.registerPage);
 app.post('/register', routes.register);
+app.get('/registeruser', routes.checkAdmin)
 
 // error handlers //
 app.use('*', defaults.notFoundHandler);
