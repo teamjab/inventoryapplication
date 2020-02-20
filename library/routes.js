@@ -17,16 +17,17 @@ function login(request, response) {
     client.query(SQL, safeValue)
         .then(result => {
             if (result.rowCount === 1 && result.rows[0].username === 'admin') {
-                let SQL1 = 'SELECT * from userstorage;';
+                let SQL1 = 'SELECT name, purchaseOrder, lotNumber, receivedDate, expData, quantities, type FROM user_table;';
                 client.query(SQL1)
                     .then(item => {
-                        response.render('./pages/inventory.ejs', { item: item, admin: true })
+                        console.log(item.rows)
+                        response.render('./pages/inventory.ejs', { item: item.rows, admin: true })
                     })
             } else if (result.rowCount ===1 ) {
-                let SQL1 = 'SELECT * from userstorage;';
+                let SQL1 = 'SELECT name, purchaseOrder, lotNumber, receivedDate, expData, quantities, type FROM user_table;';
                 client.query(SQL1)
                     .then(item => {
-                        response.render('./pages/inventory.ejs', { item: item, admin: false })
+                        response.render('./pages/inventory.ejs', { item: item.rows, admin: false })
                     })
             } else {
                 response.render('./index', { loginFailed: true });
@@ -53,9 +54,7 @@ function register(request, response) {
                 let SQL1 = `INSERT INTO users (name, username, password) VALUES ($1, $2, crypt($3, gen_salt('bf', 8)));`;
                 let safeValue1 = [name, username, password];
                 client.query(SQL1, safeValue1)
-                    .then(results => {
-                        response.redirect('/inventory');
-                    })
+                response.redirect('/');
             };
         })
         .catch(err => console.error(err));
@@ -66,12 +65,19 @@ function checkAdmin (request, response) {
     response.render('./pages/admin');
 }
 
-////// TO check for inventory ///
-function inventoryPage(request, response) {
-    let SQL1 = 'SELECT * from userstorage;';
+///// after adding the inventory
+function addingInventory (request,response) {
+    let {itemname, purchaseorder, lotnumber, rcvdate, expdate,  qty, type} = request.body;
+    console.log('this is request body from adding', request.body)
+
+    let SQL = 'INSERT INTO user_table(name, purchaseOrder, lotNumber, receivedDate, expData, quantities, type) VALUES ($1, $2, $3, $4, $5, $6, $7);';
+    let safeValue = [itemname, purchaseorder, lotnumber, rcvdate, expdate,  qty, type];
+    client.query(SQL, safeValue)
+    
+    let SQL1 = 'SELECT name, purchaseOrder, lotNumber, receivedDate, expData, quantities, type FROM user_table;;';
     client.query(SQL1)
-        .then(item => {
-            response.render('./pages/inventory.ejs', { item: item, admin: true })
+        .then(value => {
+            response.render('./pages/inventory', { item: value.rows, admin:false });
         })
 }
 
@@ -82,5 +88,5 @@ module.exports = {
     register,
     registerPage,
     checkAdmin,
-    inventoryPage
+    addingInventory
 }
