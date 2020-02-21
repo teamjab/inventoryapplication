@@ -17,3 +17,6 @@ Type `npm i` to install of the dependencies.
 ### app.js
     1. added function to store input data from form into array.
         a. used type to seperate between material and vitamin for sorting feature.
+
+## RESOURCES
+[Team Logo](https://www.freelogodesign.org/)  

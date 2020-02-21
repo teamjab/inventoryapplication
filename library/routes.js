@@ -61,12 +61,12 @@ function register(request, response) {
         .catch(err => console.error(err));
 }
 
-////// To check admin so that you can register other people
+// To check admin so that you can register other people
 function checkAdmin(request, response) {
     response.render('./pages/admin');
 }
 
-///// after adding the inventory
+//after adding the inventory
 function addingInventory(request, response) {
     let { itemname, purchaseorder, lotnumber, rcvdate, expdate, qty, type } = request.body;
     console.log(request.body);
@@ -98,6 +98,7 @@ function deleteItem(request, response) {
         })
 }
 
+// updates items 
 function updateItem(request, response) {
     let { itemname, purchaseorder, lotnumber, rcvdate, expdate, qty, type } = request.body;
     let SQL = `UPDATE user_table set name=$1, type=$2, lotNumber=$3, quantities=$4, purchaseOrder=$5, receivedDate=$6, expDate=$7 WHERE id = $8;`;
