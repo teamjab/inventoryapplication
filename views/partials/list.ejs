@@ -10,14 +10,35 @@
             <th>Type</th>
         </tr>
         <% item.forEach(items => { %>
-            <tr>
+        <tr id="<%= items.id %>">
             <td><%= items.name %></td>
             <td><%= items.purchaseorder %></td>
             <td><%= items.lotnumber %></td>
             <td><%= items.receiveddate %></td>
-            <td><%= items.expdata %></td>
+            <td><%= items.expdate %></td>
             <td><%= items.quantities %></td>
             <td><%= items.type %></td>
+            <td><button class="update">Update</button></td>
+
+
+            <form action="/inventory/<%= items.id %>?_method=DELETE" method="POST">
+                <td><button id="delete">Delete</button></td>
+            </form>
+
+        </tr>
+        <tr id="update<%= items.id %>" class="tableRow">
+            <form action="/inventory/<%= items.id %>?_method=PUT" method="POST">
+        
+                <td><input type="text" name="itemname" value="<%= items.name %>"></td>
+                <td><input type="number" name="purchaseorder" value="<%= items.purchaseorder %>"></td>
+                <td><input type="text" name="lotnumber" value="<%= items.lotnumber %>"></td>
+                <td><input type="date" name="rcvdate" value="<%= items.receiveddate %>"></td>
+                <td><input type="date" name="expdate" value="<%= items.expdate %>"></td>
+                <td><input type="number" name="qty" value="<%= items.quantities %>"></td>
+                <td><input type="text" name="type" value="<%= items.type %>"></td>
+                <td><button>Confirm Update</button></td>
+
+            </form>
         </tr>
         <% }) %>
     </tbody>
