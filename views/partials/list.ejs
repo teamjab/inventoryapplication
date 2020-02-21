@@ -17,7 +17,16 @@
             <td><%= items.receiveddate %></td>
             <td><%= items.expdata %></td>
             <td><%= items.quantities %></td>
-            <td><%= items.type %></td>
+            <td><%= items.type %></td> 
+
+            <!-- <form action="/inventory/<%= items.id %>?_method=PUT" method="POST">
+                <td><button id="update">Update</button></td>
+            </form> -->
+
+            <form action="/inventory/<%= items.id %>?_method=DELETE" method="POST">
+                <td><button id="delete">Delete</button></td>
+            </form>
+
         </tr>
         <% }) %>
     </tbody>

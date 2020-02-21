@@ -3,7 +3,7 @@
 /////////// ERROR FUNCTIONS ///////////////
 
 function notFoundHandler(request, response) {
-    response.status(404).send('This route does not exist!');
+    response.status(404).render('./pages/404.ejs');
 }
 
 function errorHandler(error, request, response) {

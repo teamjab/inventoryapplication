@@ -24,7 +24,9 @@ app.post('/inventory', routes.login);
 app.get('/admin', routes.checkAdmin)
 app.post('/admin/register', routes.registerPage);
 app.post('/register', routes.register);
-app.post('/inventory/add', routes.addingInventory)
+app.post('/inventory/add', routes.addingInventory);
+// app.put()
+app.delete('/inventory/:id', routes.deleteItem);
 
 // error handlers //
 app.use('*', defaults.notFoundHandler);

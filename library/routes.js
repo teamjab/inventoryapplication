@@ -4,12 +4,12 @@ const client = require('./client.js')
 
 ///////////////////////////////// CALLBACKS ////////////////////////////////////
 
-//renders index with login set to false //
+//renders index with login set to false, get//
 function indexPage(request, response) {
     response.render('./index', { loginFailed: false });
 }
 
-//checks username and password, if login successful, renders inventory.ejs. else renders a message in index.ejs that login failed //
+//checks username and password, if login successful, renders inventory.ejs. else renders a message in index.ejs that login failed, post //
 function login(request, response) {
     let { username, password } = request.body;
     let SQL = 'SELECT * from users WHERE $1 = username AND password = crypt($2, password);';
@@ -17,19 +17,20 @@ function login(request, response) {
     client.query(SQL, safeValue)
         .then(result => {
             if (result.rowCount === 1 && result.rows[0].username === 'admin') {
-                let SQL1 = 'SELECT name, purchaseOrder, lotNumber, receivedDate, expData, quantities, type FROM user_table;';
+                let SQL1 = 'SELECT * FROM user_table;';
                 client.query(SQL1)
                     .then(item => {
                         console.log(item.rows)
                         response.render('./pages/inventory.ejs', { item: item.rows, admin: true })
                     })
-            } else if (result.rowCount ===1 ) {
-                let SQL1 = 'SELECT name, purchaseOrder, lotNumber, receivedDate, expData, quantities, type FROM user_table;';
+            } else if (result.rowCount === 1) {
+                let SQL1 = 'SELECT * FROM user_table;';
                 client.query(SQL1)
                     .then(item => {
                         response.render('./pages/inventory.ejs', { item: item.rows, admin: false })
                     })
             } else {
+                console.log('hit')
                 response.render('./index', { loginFailed: true });
             }
         })
@@ -74,11 +75,26 @@ function addingInventory (request,response) {
     let safeValue = [itemname, purchaseorder, lotnumber, rcvdate, expdate,  qty, type];
     client.query(SQL, safeValue)
     
-    let SQL1 = 'SELECT name, purchaseOrder, lotNumber, receivedDate, expData, quantities, type FROM user_table;;';
+    let SQL1 = 'SELECT * FROM user_table;;';
     client.query(SQL1)
         .then(value => {
             response.render('./pages/inventory', { item: value.rows, admin:false });
         })
+}
+
+//delete items in inventory func
+function deleteItem(request, response){
+    // console.log('proof of life')
+    let SQL = 'DELETE FROM user_table WHERE id = $1;';
+    let safeValue = [request.params.id]
+    client.query(SQL, safeValue)
+    .then(() => {
+        let SQL1 = 'SELECT * FROM user_table;';
+        client.query(SQL1)
+        .then(results => {
+            response.render('./pages/inventory', { item: results.rows, admin:false });
+        })
+    })
 }
 
 
@@ -88,5 +104,6 @@ module.exports = {
     register,
     registerPage,
     checkAdmin,
-    addingInventory
+    addingInventory,
+    deleteItem
 }
