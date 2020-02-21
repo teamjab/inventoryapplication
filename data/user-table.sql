@@ -9,5 +9,5 @@ CREATE TABLE user_table
   quantities VARCHAR(255),
   purchaseOrder INTEGER,
   receivedDate VARCHAR(255),
-  expData VARCHAR(255)
+  expDate VARCHAR(255)
 );

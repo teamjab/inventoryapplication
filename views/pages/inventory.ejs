@@ -21,15 +21,15 @@
             <input type="text" name="lotnumber" placeholder="Lot Number">
           </div>
           <div>
-            <div>Received Date:</div>
+            <label>Received Date:</label>
             <input type="date" name="rcvdate">
           </div>
           <div>
-            <div>Expiration Date:</div>
+            <label>Expiration Date:</label>
             <input type="date" name="expdate">
           </div>
           <div>
-            <div>Quantity:</div>
+            <label>Quantity:</label>
             <input type="number" name="qty" placeholder="Quantity">
           </div>
           <div>
@@ -45,10 +45,9 @@
 
     <%- include('../partials/list', {item: item}) %>
         
-    
-
-
-
     <%- include('../partials/footer.ejs') %>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="/js/inventory.js"></script>
+
 </body>
 </html>
