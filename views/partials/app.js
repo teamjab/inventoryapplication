@@ -26,3 +26,27 @@ const addItem = (ev)=>{
 document.addEventListener('DOMContentLoaded', ()=>{
   document.getElementById('submit').addEventListener('click', addItem);
 });
+
+// search function
+function search(){
+  // element selectors
+  let input = document.getElementById('searchBar');
+  let filter = input.value.toUpperCase();
+  let table = document.getElementById('items');
+  let tr = table.getElementsByTagName('tr');
+  // sort through data names
+  for(i = 0; i<tr.length; i++) {
+    td = tr[i].getElementsByTagName('td')[0];
+    // displays based on user input
+    // hides everything not matching userinput 
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if(txtValue.toUpperCase().indexOf(filter)> -1) {
+        tr[i].style.display = '';
+      }
+      else {
+        tr[i].style.display = 'none';
+      }
+    }
+  }
+};
