@@ -7,7 +7,7 @@ CREATE TABLE user_table
   type VARCHAR(255),
   lotNumber TEXT,
   quantities VARCHAR(255),
-  purchaseOrder INTEGER,
+  purchaseOrder VARCHAR(255),
   receivedDate VARCHAR(255),
   expDate VARCHAR(255)
 );
