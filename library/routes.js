@@ -20,7 +20,6 @@ function login(request, response) {
                 let SQL1 = 'SELECT * FROM user_table;';
                 client.query(SQL1)
                     .then(item => {
-                        console.log(item.rows)
                         response.render('./pages/inventory.ejs', { item: item.rows, admin: true })
                     })
             } else if (result.rowCount === 1) {
@@ -30,7 +29,6 @@ function login(request, response) {
                         response.render('./pages/inventory.ejs', { item: item.rows, admin: false })
                     })
             } else {
-                console.log('hit')
                 response.render('./index', { loginFailed: true });
             }
         })
@@ -69,7 +67,6 @@ function checkAdmin(request, response) {
 //after adding the inventory
 function addingInventory(request, response) {
     let { itemname, purchaseorder, lotnumber, rcvdate, expdate, qty, type } = request.body;
-    console.log(request.body);
 
     let SQL = 'INSERT INTO user_table(name, purchaseOrder, lotNumber, receivedDate, expDate, quantities, type) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING expDate;';
     let safeValue = [itemname, purchaseorder, lotnumber, rcvdate, expdate, qty, type];
