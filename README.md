@@ -21,3 +21,7 @@ Type `npm i` to install of the dependencies.
 
 ## RESOURCES
 [Team Logo](https://www.freelogodesign.org/)  
+### colors and fonts
+    RGBA 18 40 76 1 
+    HEX #12284c
+    PersonaLogo in Images folder  PNG file

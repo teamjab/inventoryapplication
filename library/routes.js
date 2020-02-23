@@ -20,12 +20,18 @@ function login(request, response) {
                 let SQL1 = 'SELECT * FROM user_table;';
                 client.query(SQL1)
                     .then(item => {
+                        item.rows.sort((a, b) => {
+                            return a.id > b.id ? -1 : 1;
+                          })
                         response.render('./pages/inventory.ejs', { item: item.rows, admin: true })
                     })
             } else if (result.rowCount === 1) {
                 let SQL1 = 'SELECT * FROM user_table;';
                 client.query(SQL1)
                     .then(item => {
+                        item.rows.sort((a, b) => {
+                            return a.id > b.id ? -1 : 1;
+                          })
                         response.render('./pages/inventory.ejs', { item: item.rows, admin: false })
                     })
             } else {
@@ -72,9 +78,12 @@ function addingInventory(request, response) {
     let safeValue = [itemname, purchaseorder, lotnumber, rcvdate, expdate, qty, type];
     client.query(SQL, safeValue)
         .then(() => {
-            let SQL1 = 'SELECT * FROM user_table;;';
+            let SQL1 = 'SELECT * FROM user_table;';
             client.query(SQL1)
                 .then(value => {
+                    value.rows.sort((a, b) => {
+                        return a.id > b.id ? -1 : 1;
+                      })
                     response.render('./pages/inventory', { item: value.rows, admin: false });
                 })
         })
@@ -90,6 +99,9 @@ function deleteItem(request, response) {
             let SQL1 = 'SELECT * FROM user_table;';
             client.query(SQL1)
                 .then(results => {
+                    results.rows.sort((a, b) => {
+                        return a.id > b.id ? -1 : 1;
+                      })
                     response.render('./pages/inventory', { item: results.rows, admin: false });
                 })
         })
@@ -105,6 +117,9 @@ function updateItem(request, response) {
             let SQL1 = 'SELECT * FROM user_table;';
             client.query(SQL1)
                 .then(results => {
+                    results.rows.sort((a, b) => {
+                        return a.id > b.id ? -1 : 1;
+                      })
                     response.render('./pages/inventory', { item: results.rows, admin: false });
                 })
         })
