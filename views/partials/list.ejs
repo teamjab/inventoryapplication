@@ -12,8 +12,8 @@
         </tr>
         <% item.forEach(items => { %>
         <tr id="<%= items.id %>">
-            <td><%= items.name %></td>
-            <td><%= items.purchaseorder %></td>
+            <td class="item-names"><%= items.name %></td>
+            <td class="purchase-order"><%= items.purchaseorder %></td>
             <td><%= items.lotnumber %></td>
             <td><%= items.receiveddate %></td>
             <td><%= items.expdate %></td>
