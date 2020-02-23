@@ -1,0 +1,32 @@
+h1 {
+    font-size: 1.5em;
+    padding-bottom: 20px;
+    color: #12284c;
+    text-shadow: 2px 3px 3px rgba(0,0,0,0.3);
+}
+
+input {
+    display: block;
+    margin: 25px auto;
+    width: 100%;
+    padding: 7%;
+    border: solid 1px grey;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+button {
+    width: 100%;
+    color: white;
+    background-color: #0070BA;
+    padding: 5%;
+    border: solid 1px grey;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+img {
+    width: 50%;
+    padding: 2%; 
+}
+
