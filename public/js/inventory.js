@@ -5,12 +5,11 @@ $('.update').on('click', editUpdate);
 function editUpdate(e){
     e.preventDefault();
     let parents = $(this).parent().parent().attr('id');
-    $(`#update${parents}`).show();
+    $(`#update${parents}`).toggle();
 }
 
 $('.tableRow').hide();
 
-'use strict';
 
 
 ////brendon's code////
