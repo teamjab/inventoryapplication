@@ -1,7 +1,5 @@
 'use strict';
 
-let count = 0;
-
 $('.update').on('click', editUpdate);
 
 function editUpdate(e){

@@ -1,20 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <%- include('./partials/head.ejs') %>
+
 <body>
-    <form action="/inventory" method="post">
-      <% if (loginFailed === true) { %>
+  <header id="indexHeader">
+    <img src="./images/persona-Logo-180px.svg" alt="company logo">
+  </header>
+  <main>
+      <form action="/inventory" method="post" class="indexForm">
+        <% if (loginFailed === true) { %>
         <p>please try to login again</p>
-      <% } %>
+        <% } %>
         <fieldset>
-            <input type="text" name="username" placeholder="User Name">
-            <input type="password" name="password" placeholder="Password">
-            <button type="submit" name="logInCheck">Login</button>
+          <h1>Sign In</h1>
+          <input type="text" name="username" placeholder="Username">
+          <input type="password" name="password" placeholder="Password">
+          <button type="submit" name="logInCheck">Login</button>
         </fieldset>
-    </form>
-
-    <%- include('./partials/footer.ejs') %>
+      </form>
+  </main>
+  <%- include('./partials/footer.ejs') %>
 </body>
+
 </html>
-
-
