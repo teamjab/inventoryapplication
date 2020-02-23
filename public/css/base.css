@@ -36,4 +36,10 @@ footer a img {
     padding: 5px;
 }
 
+@media (min-width: 960px){
+    body{
+        background-color: blue;
+    }
+    
+}
 

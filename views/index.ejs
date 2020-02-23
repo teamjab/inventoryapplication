@@ -8,11 +8,11 @@
   </header>
   <main>
       <form action="/inventory" method="post" class="indexForm">
-        <% if (loginFailed === true) { %>
-        <p>please try to login again</p>
-        <% } %>
-        <fieldset>
-          <h1>Sign In</h1>
+          <fieldset>
+            <h1>Sign In</h1>
+            <% if (loginFailed === true) { %>
+              <p>Login Invalid, please try again.</p>
+              <% } %>    
           <input type="text" name="username" placeholder="Username">
           <input type="password" name="password" placeholder="Password">
           <button type="submit" name="logInCheck">Login</button>
