@@ -7,3 +7,4 @@ CREATE TABLE users
     username VARCHAR(10),
     password VARCHAR(255)
 );
+    

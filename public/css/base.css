@@ -37,9 +37,17 @@ footer a img {
 }
 
 @media (min-width: 960px){
-    body{
-        background-color: blue;
+    footer a img {
+        width: 120%;
+    }
+    footer {
+        height: 8%;
     }
     
+}
+@media (min-width:1024px){
+    footer a img {
+        width: 50%;
+    }
 }
 
