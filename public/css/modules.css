@@ -27,6 +27,14 @@
     padding: 2%;
 }
 
+/* jin fix */
+
+#wrapper {
+    width: 100%;
+    position: relative;
+}
+
+
 @media (min-width:960px){
     .indexForm {
         height: auto;
@@ -41,7 +49,7 @@
     #indexHeader {
         width: 40%;
     }
-    
+
     
 }
 

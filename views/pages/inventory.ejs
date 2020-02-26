@@ -4,6 +4,7 @@
 <link rel="stylesheet" href="/css/inventory/modules.css">
 
 <body>
+  <div id="wrapper">
     <header id="indexHeader">
         <img src="./images/persona-Logo-180px.svg" alt="company logo">
         <% if (admin === true) { %>
@@ -13,8 +14,10 @@
   <main>
     <form action="/inventory/add" method="post">
       <fieldset>
+        <div>
         <label>Item Name:</label>
         <input type="text" name="itemname" placeholder="Cordyceps,Shipper 1's...">
+        </div>
         <div>
           <label>P.O#:</label>
           <input type="number" name="purchaseorder" placeholder="Purchase Order #">
@@ -44,13 +47,13 @@
         <button type="submit">Submit</button>
       </fieldset>
     </form>
-
-    <input type="text" id="searchBar" placeholder="search Items" onkeyup="search()">
-
+    <div>
+      <input type="text" id="searchBar" placeholder="search Items" onkeyup="search()">
     <%- include('../partials/list', {item: item}) %>
-
+  </div>
   </main>
   <%- include('../partials/footer.ejs') %>
+</div>
   <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
   <script src="/js/inventory.js"></script>
 

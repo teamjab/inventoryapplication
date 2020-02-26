@@ -19,12 +19,10 @@ main {
 footer {
     background-color: #12284c;
     position: fixed;
-    bottom: 0;
     left: 0;
+    bottom: 0;
     width: 100%;
     height: 70px;
-    margin-top: -70px;
-    clear: both;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -36,18 +34,4 @@ footer a img {
     padding: 5px;
 }
 
-@media (min-width: 960px){
-    footer a img {
-        width: 120%;
-    }
-    footer {
-        height: 8%;
-    }
-    
-}
-@media (min-width:1024px){
-    footer a img {
-        width: 50%;
-    }
-}
 
