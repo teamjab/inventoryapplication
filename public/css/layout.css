@@ -52,4 +52,25 @@ footer a {
     
 }
 
+@media(min-width:960px) {
+    input {
+        width: 90%;
+        margin-left: 5%;
+        padding:2%;
+        border: 5px solid gray;
+    }
+    body {
+        font-size: 400%;
+    }
+    td button {
+        padding-right: 50%;
+        margin-left: 1%;
+    }
+    form {
+        float: left;
+    }
+    #searchBar {
+        width: 50%;
+    }
+}
 
