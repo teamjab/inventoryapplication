@@ -25,9 +25,31 @@ button {
     font-size: 1em;
 }
 
-img {
+header img {
     width: 50%;
-    padding: 2%; 
+}
+
+main {
+    margin-bottom: 20px;
+}
+
+footer a {
+    width: 20%;
+    text-align: center;
+}
+
+
+@media (min-width: 960px){
+
+    footer {
+        height: 100px;
+    }
+        
+    footer a {
+        width: 20%;
+        text-align: center;
+    }
+    
 }
 
 
