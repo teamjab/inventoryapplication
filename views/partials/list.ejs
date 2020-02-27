@@ -19,11 +19,11 @@
             <td><%= items.expdate %></td>
             <td><%= items.quantities %></td>
             <td><%= items.type %></td>
-            <td><button class="update">Update</button></td>
+            <td><button id="update" class="update">Update</button></td>
 
 
             <form action="/inventory/<%= items.id %>?_method=DELETE" method="POST">
-                <td><button class="delete">Delete</button></td>
+                <td><button id="delete" class="delete">Delete</button></td>
             </form>
 
         </tr>

@@ -39,20 +39,10 @@ footer a {
 }
 
 
-@media (min-width: 960px){
-
-    footer {
-        height: 100px;
-    }
-        
+@media(min-width:960px) {
     footer a {
-        width: 20%;
         text-align: center;
     }
-    
-}
-
-@media(min-width:960px) {
     input {
         width: 90%;
         margin-top:0;
@@ -66,8 +56,8 @@ footer a {
         font-size: 100%;
     }
     td button {
-        padding-right: 50%;
-        margin-left: 1%;
+        padding-right: 0%;
+        margin-left: 25px;
     }
     form {
         float: left;
@@ -85,6 +75,20 @@ footer a {
         color: #0070BA;
         border: 3px outset #0070BA;
         border-radius: 5px;
+        position: fixed;
+        right: 10%;
+        padding: 0.3%;
     }
+    th {
+        font-size: 15px;
+        font-weight: bolder;
+        padding-right: 10px;
+    }
+    #delete {
+        margin-left: 40px;
+        font-size: 95%;
+    }
+        
+    
 }
 
