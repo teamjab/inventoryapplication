@@ -55,9 +55,12 @@ footer a {
 @media(min-width:960px) {
     input {
         width: 90%;
-        margin-left: 5%;
+        margin-top:0;
+        margin-left: 0;
         padding:2%;
-        border: 5px solid gray;
+        border: 1.5px outset #0070BA;
+        box-shadow: 2px 2px gray;
+        
     }
     body {
         font-size: 100%;
@@ -70,7 +73,18 @@ footer a {
         float: left;
     }
     #searchBar {
-        width: 50%;
+        width: 30%;
+        padding:0;
+    }
+    .radios {
+        box-shadow: none;
+    }
+    header a {
+        font-size: larger;
+        text-decoration: none;
+        color: #0070BA;
+        border: 3px outset #0070BA;
+        border-radius: 5px;
     }
 }
 
