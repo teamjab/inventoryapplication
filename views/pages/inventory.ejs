@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../partials/head.ejs') %>
+<link rel="stylesheet" href="/css/inventory/modules.css">
+
+<body>
+  <div id="wrapper">
+    <header id="indexHeader">
+        <% if (admin === true) { %>
+        <a href="/admin">Register User</a>
+        <% } %>
+      </header>
+  <main>
+    <form action="/inventory/add" method="post">
+      <fieldset>
+        <div>
+        <label>Item Name:</label>
+        <input type="text" name="itemname" placeholder="Shoes, Pencil, Pepsi...">
+        </div>
+        <div>
+          <label>P.O#:</label>
+          <input type="number" name="purchaseorder" placeholder="Purchase Order #">
+        </div>
+        <div>
+          <label>Lot Number:</label>
+          <input type="text" name="lotnumber" placeholder="Lot Number">
+        </div>
+        <div>
+          <label>Received Date:</label>
+          <input type="date" name="rcvdate">
+        </div>
+        <div>
+          <label>Expiration Date:</label>
+          <input type="date" name="expdate">
+        </div>
+        <div>
+          <label>Quantity:</label>
+          <input type="number" name="qty" placeholder="Quantity">
+        </div>
+        <div>
+          <label>Material</label>
+          <input class="radios" type="radio" name="type" value="material">
+          <label>Food</label>
+          <input class="radios" type="radio" name="type" value="food">
+        </div>
+        <button type="submit">Submit</button>
+      </fieldset>
+    </form>
+    <div>
+      <input type="text" id="searchBar" placeholder="search Items" onkeyup="search()">
+    <%- include('../partials/list', {item: item}) %>
+  </div>
+  </main>
+  <%- include('../partials/footer.ejs') %>
+</div>
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+  <script src="/js/inventory.js"></script>
+
+</body>
+
+</html>

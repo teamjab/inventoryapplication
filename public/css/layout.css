@@ -1,0 +1,94 @@
+h1 {
+    font-size: 1.5em;
+    padding-bottom: 20px;
+    color: #12284c;
+    text-shadow: 2px 3px 3px rgba(0,0,0,0.3);
+}
+
+input {
+    display: block;
+    margin: 25px auto;
+    width: 100%;
+    padding: 7%;
+    border: solid 1px grey;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+button {
+    width: 100%;
+    color: white;
+    background-color: #0070BA;
+    padding: 5%;
+    border: solid 1px grey;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+header img {
+    width: 50%;
+}
+
+main {
+    margin-bottom: 20px;
+}
+
+footer a {
+    width: 20%;
+    text-align: center;
+}
+
+
+@media(min-width:960px) {
+    footer a {
+        text-align: center;
+    }
+    input {
+        width: 90%;
+        margin-top:0;
+        margin-left: 0;
+        padding:2%;
+        border: 1.5px outset #0070BA;
+        box-shadow: 2px 2px gray;
+        
+    }
+    body {
+        font-size: 100%;
+    }
+    td button {
+        padding-right: 0%;
+        margin-left: 25px;
+    }
+    form {
+        float: left;
+    }
+    #searchBar {
+        width: 30%;
+        padding:0;
+    }
+    .radios {
+        box-shadow: none;
+    }
+    header a {
+        font-size: larger;
+        text-decoration: none;
+        color: #0070BA;
+        border: 3px outset #0070BA;
+        border-radius: 5px;
+        position: fixed;
+        right: 10%;
+        padding: 0.3%;
+    }
+    th {
+        font-size: 15px;
+        font-weight: bolder;
+        padding-right: 10px;
+    }
+    #delete {
+        margin-left: 40px;
+        font-size: 95%;
+    }
+        
+    
+}
+

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./partials/head.ejs') %>
+
+<body>
+  <div id="wrapper">
+  <header id="indexHeader">
+  </header>
+  <main>
+      <form action="/inventory" method="post" class="indexForm">
+          <fieldset>
+            <h1>Sign In</h1>
+            <% if (loginFailed === true) { %>
+              <p>Login Invalid, please try again.</p>
+              <% } %>    
+          <input type="text" name="username" placeholder="Username">
+          <input type="password" name="password" placeholder="Password">
+          <button type="submit" name="logInCheck">Login</button>
+        </fieldset>
+      </form>
+  </main>
+  <%- include('./partials/footer.ejs') %>
+</div>
+</body>
+
+</html>
