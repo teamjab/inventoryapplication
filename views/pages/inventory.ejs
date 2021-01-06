@@ -6,7 +6,6 @@
 <body>
   <div id="wrapper">
     <header id="indexHeader">
-        <img src="./images/persona-Logo-180px.svg" alt="company logo">
         <% if (admin === true) { %>
         <a href="/admin">Register User</a>
         <% } %>
@@ -16,7 +15,7 @@
       <fieldset>
         <div>
         <label>Item Name:</label>
-        <input type="text" name="itemname" placeholder="Cordyceps,Shipper 1's...">
+        <input type="text" name="itemname" placeholder="Shoes, Pencil, Pepsi...">
         </div>
         <div>
           <label>P.O#:</label>
@@ -41,8 +40,8 @@
         <div>
           <label>Material</label>
           <input class="radios" type="radio" name="type" value="material">
-          <label>Vitamin</label>
-          <input class="radios" type="radio" name="type" value="vitamin">
+          <label>Food</label>
+          <input class="radios" type="radio" name="type" value="food">
         </div>
         <button type="submit">Submit</button>
       </fieldset>
